@@ -77,7 +77,7 @@ jobs:
         run: | 
          pwd
          ls       
-         docker buildx build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f Dockerfile . --tag arm64
+         docker buildx build --platform linux/arm64,linux/amd64 --pull -t ghcr.io/autocore-ai/data-foxy:latest -f Dockerfile .
          docker image list
       -
        name: Inspect image
