@@ -59,7 +59,7 @@ jobs:
       -
        name: Docker Buildx (build)
        run: |
-         docker buildx build  ${{ steps.prepare.outputs.buildx_args }}
+         docker buildx build  --platform linux/amd64,linux/arm64 -t ghcr.io/autocore-ai/data-foxy .
       -
        name: Login to DockerHub
        if: success() && github.event_name != 'pull_request'
