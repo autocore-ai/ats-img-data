@@ -66,18 +66,18 @@ jobs:
       -
        name: Docker Buildx (pull)
        run: |
-         docker pull ghcr.io/autocore-ai/data-foxy
-      -
-       name: Docker Buildx (build)
-       run: |
-          docker buildx build --platform=linux/amd64,linux/arm64 --tag arm64 --push .
-      -
-       name: Docker Buildx (push)
-       if: success() && github.event_name != 'pull_request'
-       run: |
-         docker push ghcr.io/autocore-ai/data-foxy
-      -
-       name: Inspect image
-       if: always() && github.event_name != 'pull_request'
-       run: |
-         docker buildx imagetools inspect ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}
+         docker pull ghcr.io/autocore-ai/data-foxy  -f $(pwd)
+#       -
+#        name: Docker Buildx (build)
+#        run: |
+#           docker buildx build --platform=linux/amd64,linux/arm64 --tag arm64 --push .
+#       -
+#        name: Docker Buildx (push)
+#        if: success() && github.event_name != 'pull_request'
+#        run: |
+#          docker push ghcr.io/autocore-ai/data-foxy
+#       -
+#        name: Inspect image
+#        if: always() && github.event_name != 'pull_request'
+#        run: |
+#          docker buildx imagetools inspect ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}
