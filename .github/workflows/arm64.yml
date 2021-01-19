@@ -78,6 +78,7 @@ jobs:
          pwd
          ls       
          docker buildx build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f Dockerfile . --tag arm64
+         docker image list
       -
        name: Inspect image
        if: always() && github.event_name != 'pull_request'
