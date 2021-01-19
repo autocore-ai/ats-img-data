@@ -76,8 +76,7 @@ jobs:
         name: Build and push the core docker image
         run: | 
          pwd
-         ls
-         docker build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f Dockerfile . 
+         ls       
          docker buildx build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f Dockerfile . --tag arm64
       -
        name: Docker Buildx (push)
