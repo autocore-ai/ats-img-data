@@ -64,9 +64,13 @@ jobs:
                 username: ${{ github.repository_owner }}
                 password: ${{ secrets.GHCR_TOKEN }}
       -
-       name: Docker Buildx (build)
+       name: Docker Buildx (pull)
        run: |
          docker pull ghcr.io/autocore-ai/data-foxy
+      -
+       name: Docker Buildx (build)
+       run: |
+          docker buildx build --platform linux/arm64,linux/amd64 ghcr.io/autocore-ai/data-foxy
       -
        name: Docker Buildx (push)
        if: success() && github.event_name != 'pull_request'
