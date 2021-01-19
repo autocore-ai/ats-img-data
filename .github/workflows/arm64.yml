@@ -75,7 +75,7 @@ jobs:
       -
         name: Build and push the core docker image
         run: | 
-         docker buildx build --platform=linux/amd64,linux/arm64 --push ghcr.io/autocore-ai/data-foxy:latest --tag arm64
+          docker build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f $(pwd)/ . 
       -
        name: Docker Buildx (push)
        if: success() && github.event_name != 'pull_request'
