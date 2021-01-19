@@ -67,9 +67,12 @@ jobs:
        name: Docker Buildx (pull)
        run: |
          docker pull ghcr.io/autocore-ai/data-foxy
-         doker image list
-      -
 
+      -
+       name : Docker show image
+       run:
+         docker image list
+      -
         name: Build and push the core docker image
         run: | 
          docker buildx build --platform=linux/amd64,linux/arm64 --push ghcr.io/autocore-ai/data-foxy:amr64
