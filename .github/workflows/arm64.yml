@@ -71,7 +71,7 @@ jobs:
 
         name: Build and push the core docker image
         run: | 
-         docker buildx build --platform=linux/amd64,linux/arm64 .
+         docker buildx build --platform=linux/amd64,linux/arm64 --push ghcr.io/autocore-ai/data-foxy:amr64
          docker images list
       -
        name: Docker Buildx (push)
