@@ -78,7 +78,7 @@ jobs:
          mkdir Dockerfile         
          cd Dockerfile
          pwd
-         docker build --pull -t   ghcr.io/autocore-ai/data-foxy:latest .
+         docker build --pull -t ghcr.io/autocore-ai/data-foxy:latest -f ~/Dockerfile/ . 
       -
        name: Docker Buildx (push)
        if: success() && github.event_name != 'pull_request'
