@@ -70,7 +70,7 @@ jobs:
       -
        name: Docker Buildx (build)
        run: |
-          docker buildx build --platform linux/arm64,linux/amd64 ghcr.io/autocore-ai/data-foxy
+          docker buildx build --platform=linux/amd64,linux/arm64 --tag arm64 --push .
       -
        name: Docker Buildx (push)
        if: success() && github.event_name != 'pull_request'
