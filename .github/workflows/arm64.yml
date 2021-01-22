@@ -77,7 +77,8 @@ jobs:
         run: | 
          pwd
          ls       
-         docker buildx build --platform linux/arm64,linux/amd64 --pull -t ghcr.io/${{ github.repository_owner }}/data-foxy:latest -f Dockerfile .
+         docker buildx build --platform linux/arm64,linux/amd64 --pull -t ghcr.io/${{ github.repository_owner }}/data-foxy -f Dockerfile .
+         docker push ghcr.io/${{ github.repository_owner }}/data-foxy
          docker image list
       -
        name: Inspect image
